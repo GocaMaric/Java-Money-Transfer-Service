@@ -19,6 +19,6 @@ Money Transfer Service. Service A sends money and Service B recive money. Java c
 *** Steps to run the service:
 - Open project in IntelliJ IDE or Esclipse as Maven project.
 - Run the Main.
-- Go to http://localhost:8161 and Login as username:admin and password:admin .
+- Go to http://localhost:8161 and Login as username:"admin" and password:"admin".
 - Create MySQL database called "money-transfer" with username:"root" and password:"root".
 - Go to http://localhost:8080/swagger-ui.html and start sending money. :)
