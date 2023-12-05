@@ -1,6 +1,7 @@
 package com.moneytransfer.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,57 +10,54 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "moeny")
+@Table(name = "money")
 public class MoneyTransfer implements Serializable {
 
-  private static final long serialVersionUID = -295422703255886286L;
-  
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+    private static final long serialVersionUID = -295422703255886286L;
 
-  private Double amount;
-  
-  private String currency;
-  
-  private Date createdDate = new Date();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-  public int getId() {
-    return id;
-  }
+    private BigDecimal amount;
 
-  public void setId(int id) {
-    this.id = id;
-  }
+    private String currency;
 
-  public Double getAmount() {
-    return amount;
-  }
+    private final Date createdDate = new Date();
 
-  public void setAmount(Double amount) {
-    this.amount = amount;
-  }
+    public int getId() {
+        return id;
+    }
 
-  public String getCurrency() {
-    return currency;
-  }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
+    public BigDecimal getAmount() {
+        return amount;
+    }
 
-  public Date getCreatedDate() {
-    return createdDate;
-  }
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
 
-  public void setCreatedDate(Date createdDate) {
-    this.createdDate = createdDate;
-  }
+    public String getCurrency() {
+        return currency;
+    }
 
-  @Override
-  public String toString() {
-    return "MoneyTransfer [id=" + id + ", amount=" + amount + ", currency=" + currency
-        + ", createdDate=" + createdDate + "]";
-  }
-  
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public Date getCreatedDate() {
+        return new Date(createdDate.getTime()); // Returning a copy to maintain immutability
+    }
+
+    @Override
+    public String toString() {
+        return "MoneyTransfer [id=" + id + ", amount=" + amount + ", currency=" + currency
+                + ", createdDate=" + createdDate + "]";
+    }
+}
+
 }
